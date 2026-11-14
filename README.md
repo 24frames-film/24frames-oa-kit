@@ -31,41 +31,41 @@ npx skills add 24frames-film/24frames-oa-kit
 
 | # | 部件 | `article.md` 写法 | 规格 | 预览 |
 |---|---|---|---|---|
-| 01 | 刊头 | 自动生成；frontmatter `cover_label` 决定括号里的栏目词（Screen / Play / Portrait） | `assets/masthead.svg`：官方 logo + Screen / Play / Portrait 行，当前栏目加「」，栏宽 100%。文章顶 → logo 24px，刊头 → 头图 32px | <img src="skills/24frames-magazine-layout/docs/preview/01_masthead.jpg" width="300" alt="刊头"> |
-| 02 | 头图 | frontmatter `hero: images/….jpg` | 内容图宽 ≥1080。头图 → dek 24px | <img src="skills/24frames-magazine-layout/docs/preview/02_hero.jpg" width="300" alt="头图"> |
-| 03 | dek（导语） | `### …` | 12px / 300 / 行高 1.8 / 字距 1px，`#D3381C` | <img src="skills/24frames-magazine-layout/docs/preview/03_dek.jpg" width="300" alt="dek（导语）"> |
-| 04 | 正文 | 普通段落；`**粗体**` 加粗 | 14px / 300 / 行高 1.8 / 字距 1.5px，两端对齐，无首行缩进，`#3E3E3E` | <img src="skills/24frames-magazine-layout/docs/preview/04_body.jpg" width="300" alt="正文"> |
-| 05 | 章节词标 01–NN | `## 01 中文标题 \| ENGLISH` | 编号 Bebas Neue，英文 Montserrat Alternates SemiBold 加「」，中文 Noto Sans CJK SC Bold；中文约 18 字一行，放不下报错。上下各 48px | <img src="skills/24frames-magazine-layout/docs/preview/05_wordmark.jpg" width="300" alt="章节词标 01–NN"> |
-| 06 | 单图 + 图注 | `![图注](images/a.jpg)` | 图 → 图注 16px；图注 12px `#D3381C`。影片剧照图注只写 `《片名》年份` | <img src="skills/24frames-magazine-layout/docs/preview/06_figure.jpg" width="300" alt="单图 + 图注"> |
-| 07 | 上下对图 | `![图注](images/a.jpg images/b.jpg)` | 两张图上下排，间隔 4px，图注在下方；多条图注用 ` // ` 隔开，每条一行 | <img src="skills/24frames-magazine-layout/docs/preview/07_pair.jpg" width="300" alt="上下对图"> |
+| 01 | 刊头 | 自动生成；frontmatter `cover_label` 决定括号里的栏目词（Screen / Play / Portrait） | `assets/masthead.svg`：官方 logo + Screen / Play / Portrait 行，当前栏目加「」，栏宽 100%。文章顶 → logo 24px，刊头 → 头图 32px | <img src="docs/preview/01_masthead.jpg" width="300" alt="刊头"> |
+| 02 | 头图 | frontmatter `hero: images/….jpg` | 内容图宽 ≥1080。头图 → dek 24px | <img src="docs/preview/02_hero.jpg" width="300" alt="头图"> |
+| 03 | dek（导语） | `### …` | 12px / 300 / 行高 1.8 / 字距 1px，`#D3381C` | <img src="docs/preview/03_dek.jpg" width="300" alt="dek（导语）"> |
+| 04 | 正文 | 普通段落；`**粗体**` 加粗 | 14px / 300 / 行高 1.8 / 字距 1.5px，两端对齐，无首行缩进，`#3E3E3E` | <img src="docs/preview/04_body.jpg" width="300" alt="正文"> |
+| 05 | 章节词标 01–NN | `## 01 中文标题 \| ENGLISH` | 编号 Bebas Neue，英文 Montserrat Alternates SemiBold 加「」，中文 Noto Sans CJK SC Bold；中文约 18 字一行，放不下报错。上下各 48px | <img src="docs/preview/05_wordmark.jpg" width="300" alt="章节词标 01–NN"> |
+| 06 | 单图 + 图注 | `![图注](images/a.jpg)` | 图 → 图注 16px；图注 12px `#D3381C`。影片剧照图注只写 `《片名》年份` | <img src="docs/preview/06_figure.jpg" width="300" alt="单图 + 图注"> |
+| 07 | 上下对图 | `![图注](images/a.jpg images/b.jpg)` | 两张图上下排，间隔 4px，图注在下方；多条图注用 ` // ` 隔开，每条一行 | <img src="docs/preview/07_pair.jpg" width="300" alt="上下对图"> |
 | 08 | GIF | 同单图，文件用 `.gif` | 排版和单图相同。GIF 宽 ≥480 | 同 06 |
-| 09 | 侧栏条目（rail） | `>> **起头词**文字` | 字号同正文，宽 85%、左缩 15%，起头词 600 绯红；同组条目之间 24px | <img src="skills/24frames-magazine-layout/docs/preview/08_rail.jpg" width="300" alt="侧栏条目（rail）"> |
-| 10 | 音乐卡片 | `[[music-card]]`，放在一段正文后；frontmatter 填 `music_*` 字段 | 前一段末尾自动加「（请点击音乐继续阅读）」。卡片本身（`mp-common-clmusic`）只在公众号里显示，预览图里的灰条是占位 | <img src="skills/24frames-magazine-layout/docs/preview/09_music_card.jpg" width="300" alt="音乐卡片"> |
-| 11 | ♪ 音乐行 | `♪ …` | 12px `#D3381C` | <img src="skills/24frames-magazine-layout/docs/preview/10_music_line.jpg" width="300" alt="♪ 音乐行"> |
-| 12 | 署名块 | `[[byline]]`；frontmatter `byline_name`、`byline_sig` | 「24帧/文」→ 名字 → 个签，间距 16px；个签 12px `#999999`。署名块前后 48px | <img src="skills/24frames-magazine-layout/docs/preview/11_byline.jpg" width="300" alt="署名块"> |
-| 13 | credits | `[credit] …`，可写多行 | 12px `#3E3E3E`，统一放在署名块后面 | <img src="skills/24frames-magazine-layout/docs/preview/12_credits.jpg" width="300" alt="credits"> |
-| 14 | 页脚 logo | 自动生成 | `assets/footer.svg`：只有 logo，无底色、无卡片 | <img src="skills/24frames-magazine-layout/docs/preview/13_footer.jpg" width="300" alt="页脚 logo"> |
-| 15 | Read more 标题 + 卡片 | 自动生成；frontmatter `readmore_url`、`readmore_title`、`readmore_cover` | 上一篇的 2.35:1 封面放大到 1218 宽，底部渐变，白色标题；整张可点击 | <img src="skills/24frames-magazine-layout/docs/preview/14_read_more.jpg" width="300" alt="Read more 标题 + 卡片"> |
-| 16 | Follow us 标题 + 三个二维码 | 自动生成 | `assets/qr_oa.png`、`qr_xhs.png`、`qr_helper.png`，540×540，三张独立图片，宽 26.656%，间距 10.016%，长按各自识别 | <img src="skills/24frames-magazine-layout/docs/preview/15_follow_us.jpg" width="300" alt="Follow us 标题 + 三个二维码"> |
-| 17 | 横版封面 | `make.py --cover`；frontmatter `cover_still`、`cover_label` | 1800×766，亮度 0.72，白色 logo 墨迹宽 518 居中，栏目词 Montserrat Alternates Medium 44 加「」 | <img src="skills/24frames-magazine-layout/docs/preview/16_cover_landscape.jpg" width="300" alt="横版封面"> |
-| 18 | 方版封面 | 同上，一起生成 | 1080×1080 | <img src="skills/24frames-magazine-layout/docs/preview/17_cover_square.jpg" width="200" alt="方版封面"> |
+| 09 | 侧栏条目（rail） | `>> **起头词**文字` | 字号同正文，宽 85%、左缩 15%，起头词 600 绯红；同组条目之间 24px | <img src="docs/preview/08_rail.jpg" width="300" alt="侧栏条目（rail）"> |
+| 10 | 音乐卡片 | `[[music-card]]`，放在一段正文后；frontmatter 填 `music_*` 字段 | 前一段末尾自动加「（请点击音乐继续阅读）」。卡片本身（`mp-common-clmusic`）只在公众号里显示，预览图里的灰条是占位 | <img src="docs/preview/09_music_card.jpg" width="300" alt="音乐卡片"> |
+| 11 | ♪ 音乐行 | `♪ …` | 12px `#D3381C` | <img src="docs/preview/10_music_line.jpg" width="300" alt="♪ 音乐行"> |
+| 12 | 署名块 | `[[byline]]`；frontmatter `byline_name`、`byline_sig` | 「24帧/文」→ 名字 → 个签，间距 16px；个签 12px `#999999`。署名块前后 48px | <img src="docs/preview/11_byline.jpg" width="300" alt="署名块"> |
+| 13 | credits | `[credit] …`，可写多行 | 12px `#3E3E3E`，统一放在署名块后面 | <img src="docs/preview/12_credits.jpg" width="300" alt="credits"> |
+| 14 | 页脚 logo | 自动生成 | `assets/footer.svg`：只有 logo，无底色、无卡片 | <img src="docs/preview/13_footer.jpg" width="300" alt="页脚 logo"> |
+| 15 | Read more 标题 + 卡片 | 自动生成；frontmatter `readmore_url`、`readmore_title`、`readmore_cover` | 上一篇的 2.35:1 封面放大到 1218 宽，底部渐变，白色标题；整张可点击 | <img src="docs/preview/14_read_more.jpg" width="300" alt="Read more 标题 + 卡片"> |
+| 16 | Follow us 标题 + 三个二维码 | 自动生成 | `assets/qr_oa.png`、`qr_xhs.png`、`qr_helper.png`，540×540，三张独立图片，宽 26.656%，间距 10.016%，长按各自识别 | <img src="docs/preview/15_follow_us.jpg" width="300" alt="Follow us 标题 + 三个二维码"> |
+| 17 | 横版封面 | `make.py --cover`；frontmatter `cover_still`、`cover_label` | 1800×766，亮度 0.72，白色 logo 墨迹宽 518 居中，栏目词 Montserrat Alternates Medium 44 加「」 | <img src="docs/preview/16_cover_landscape.jpg" width="300" alt="横版封面"> |
+| 18 | 方版封面 | 同上，一起生成 | 1080×1080 | <img src="docs/preview/17_cover_square.jpg" width="200" alt="方版封面"> |
 
 例稿里没有侧栏条目、音乐卡片和 ♪ 音乐行，这三张预览图是在例稿里临时加了几行写法生成的。
 
 <details>
 <summary>整篇长图（例稿，缩小显示）</summary>
 
-<img src="skills/24frames-magazine-layout/docs/preview/18_full_article.jpg" width="240" alt="整篇长图">
+<img src="docs/preview/18_full_article.jpg" width="240" alt="整篇长图">
 
 </details>
 
 ## 写一篇文章
 
 ```bash
-python3 skills/24frames-magazine-layout/bin/new_article.py ~/oa/my-article    # 新建文章目录
+python3 bin/new_article.py ~/oa/my-article    # 新建文章目录
 # 编辑 ~/oa/my-article/article.md，图片放进 images/
-python3 skills/24frames-magazine-layout/bin/make.py ~/oa/my-article --cover    # 生成正文和封面
-python3 skills/24frames-magazine-layout/bin/selfcheck.py ~/oa/my-article --shots   # 自检，必须全部 PASS
+python3 bin/make.py ~/oa/my-article --cover    # 生成正文和封面
+python3 bin/selfcheck.py ~/oa/my-article --shots   # 自检，必须全部 PASS
 ```
 
 生成的文件都在文章目录的 `out/` 下，正文是 `out/content.html`，封面在 `out/cover/`。
@@ -88,7 +88,7 @@ python3 skills/24frames-magazine-layout/bin/selfcheck.py ~/oa/my-article --shots
 ## 运行环境
 
 ```bash
-pip install -r skills/24frames-magazine-layout/requirements.txt
+pip install -r requirements.txt
 python3 -m playwright install chromium     # 已装 Chrome 的话，设 CHROME_PATH 指向它也可以
 ```
 
@@ -110,17 +110,17 @@ token 默认缓存在 `~/.cache/24frames-magazine-layout/wechat_token.json`，�
 存草稿的命令：
 
 ```bash
-python3 skills/24frames-magazine-layout/bin/draft.py ~/oa/my-article dry-run          # 只检查，不调用接口
-python3 skills/24frames-magazine-layout/bin/draft.py ~/oa/my-article add --yes-add    # 真正新建草稿，每篇只跑一次
-python3 skills/24frames-magazine-layout/bin/preview_verify.py ~/oa/my-article         # 在预览页核对浅色和深色模式
+python3 bin/draft.py ~/oa/my-article dry-run          # 只检查，不调用接口
+python3 bin/draft.py ~/oa/my-article add --yes-add    # 真正新建草稿，每篇只跑一次
+python3 bin/preview_verify.py ~/oa/my-article         # 在预览页核对浅色和深色模式
 ```
 
 ## 先跑一下例稿
 
 ```bash
-cp -r skills/24frames-magazine-layout/example /tmp/demo
-python3 skills/24frames-magazine-layout/bin/make.py /tmp/demo --cover
-python3 skills/24frames-magazine-layout/bin/selfcheck.py /tmp/demo --shots
+cp -r example /tmp/demo
+python3 bin/make.py /tmp/demo --cover
+python3 bin/selfcheck.py /tmp/demo --shots
 ```
 
 ## 换成你自己的公众号
@@ -128,13 +128,13 @@ python3 skills/24frames-magazine-layout/bin/selfcheck.py /tmp/demo --shots
 仓库里的 logo 和二维码是 24帧 的。用在自己的号上时：
 
 1. 替换 `logo/24frames_official.svg` 和 `assets/qr_*.png`。
-2. 改 `skills/24frames-magazine-layout/bin/textsvg.py` 里的标签文字，再运行 `python3 skills/24frames-magazine-layout/bin/textsvg.py strips` 重新生成文字 SVG（`skills/24frames-magazine-layout/docs/SPEC.md` 第 7 节有说明）。
+2. 改 `bin/textsvg.py` 里的标签文字，再运行 `python3 bin/textsvg.py strips` 重新生成文字 SVG（`docs/SPEC.md` 第 7 节有说明）。
 3. 颜色、字体、版式参数都在 `kit.json` 里改。
 
 ## 目录
 
 ```
-skills/24frames-magazine-layout/
+
   SKILL.md        给 agent 看的流程和规则
   README.md       本说明
   docs/           SPEC.md 排版规格
