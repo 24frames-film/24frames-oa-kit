@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.env
+*.env
+.secrets/
+wechat_token.json
+wechat_state.json
+out/
+images_orig/

@@ -1,0 +1,63 @@
+{
+ "masthead.svg": {
+  "size": [
+   839,
+   252.91
+  ],
+  "solid_top": 0,
+  "solid_bottom": 0,
+  "colour": "#141414",
+  "generator": "bin/textsvg.py (font outlines)"
+ },
+ "follow_qr_labels.svg": {
+  "size": [
+   1238,
+   156.64
+  ],
+  "solid_top": 0,
+  "solid_bottom": 0,
+  "colour": "#3E3E3E",
+  "generator": "bin/textsvg.py (font outlines)",
+  "gap_from_codes_canvas_px": 25.88
+ },
+ "read_more.svg": {
+  "size": [
+   1238,
+   77.3
+  ],
+  "solid_top": 0,
+  "solid_bottom": 0,
+  "colour": "#141414",
+  "generator": "bin/textsvg.py (font outlines)"
+ },
+ "follow_head.svg": {
+  "size": [
+   1238,
+   77.3
+  ],
+  "solid_top": 0,
+  "solid_bottom": 0,
+  "colour": "#141414",
+  "generator": "bin/textsvg.py (font outlines)"
+ },
+ "byline_label.svg": {
+  "size": [
+   1238,
+   79.4
+  ],
+  "solid_top": 0,
+  "solid_bottom": 0,
+  "colour": "#141414",
+  "generator": "bin/textsvg.py (font outlines)"
+ },
+ "footer.svg": {
+  "size": [
+   839,
+   153.05
+  ],
+  "solid_top": 0,
+  "solid_bottom": 0,
+  "colour": "#141414",
+  "generator": "bin/textsvg.py (official logo, kit.flatten_official_logo — no text)"
+ }
+}

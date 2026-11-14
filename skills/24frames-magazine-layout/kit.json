@@ -1,0 +1,128 @@
+{
+ "kit": "24frames-magazine-layout — 24帧杂志排版（24FRAMES PROJECT 公众号文章排版套件）",
+ "safety": {
+  "never_publish": true,
+  "forbidden_endpoints": [
+   "freepublish/submit",
+   "freepublish/batchget",
+   "message/mass/sendall",
+   "message/mass/send",
+   "message/mass/preview",
+   "draft/delete"
+  ],
+  "allowed_endpoints": [
+   "media/uploadimg",
+   "material/add_material",
+   "draft/add",
+   "draft/update",
+   "draft/get",
+   "draft/batchget",
+   "draft/count"
+  ],
+  "draft_add_requires": "--yes-add flag AND explicit user approval in chat for that one draft/add",
+  "draft_update_only_on": "the media_id recorded in the article's state.json (never other drafts)",
+  "never_print_secrets": true,
+  "secrets_note": "Never print, copy, commit or log credentials or the token.",
+  "secrets": "env WECHAT_APPID + WECHAT_APPSECRET, or WECHAT_ENV_FILE=<path to a KEY=VALUE file with both>",
+  "token_cache": "env WECHAT_TOKEN_CACHE, default ~/.cache/24frames-magazine-layout/wechat_token.json (mode 600)"
+ },
+ "fonts": {
+  "bebas": "fonts/BebasNeue-Regular.ttf",
+  "ma_medium": "fonts/MontserratAlternates-Medium.ttf",
+  "ma_semibold": "fonts/MontserratAlternates-SemiBold.ttf",
+  "ma_bold": "fonts/MontserratAlternates-Bold.ttf",
+  "cjk_bold": "/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc",
+  "cjk_regular": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+  "cjk_index_sc": 2,
+  "cjk_note": "Override with env OA_CJK_BOLD / OA_CJK_REGULAR (any Noto Sans CJK SC / Source Han Sans SC file)."
+ },
+ "colours": {
+  "ink": "#141414",
+  "body": "#3E3E3E",
+  "crimson": "#D3381C",
+  "white": "#FFFFFF",
+  "byline_sig": "#999999"
+ },
+ "logo": {
+  "official_svg": "logo/24frames_official.svg",
+  "paths_svg": "logo/24frames_logo_paths.svg",
+  "spec": "logo/logo_spec.json"
+ },
+ "cover": {
+  "size": [
+   1800,
+   766
+  ],
+  "brightness": 0.72,
+  "logo_ink_width_px": 518,
+  "logo_colour": "#FFFFFF",
+  "label_default": "Play",
+  "label_font": "ma_medium",
+  "label_px": 44,
+  "label_colour": "#FFFFFF",
+  "bracket_font": "cjk_bold",
+  "bracket_px": 80,
+  "bracket_colour": "#D3381C",
+  "bracket_glow_blur_px": 12,
+  "bracket_glow_alpha": 170,
+  "bracket_gap_px": 10,
+  "bracket_overhang_px": 12,
+  "logo_to_label_cap_gap_px": 30,
+  "group": "logo + label centred horizontally and vertically on the 1800×766 canvas",
+  "square_crop_px": [
+   517,
+   0,
+   1283,
+   766
+  ],
+  "cover_info": {
+   "crop_percent_list": [
+    {
+     "ratio": "2.35_1",
+     "x1": "0",
+     "y1": "0",
+     "x2": "1",
+     "y2": "1"
+    },
+    {
+     "ratio": "1_1",
+     "x1": "0.287222",
+     "y1": "0",
+     "x2": "0.712778",
+     "y2": "1"
+    }
+   ]
+  }
+ },
+ "layout": {
+  "side_padding_px": 15,
+  "gap_flow": 48,
+  "gap_heading": 48,
+  "gap_tight": 24,
+  "gap_attached": 16,
+  "top_masthead_px": 24,
+  "article_bottom_padding_px": 40,
+  "body": "14px / 300 / line-height 1.8 / letter-spacing 1.5px / #3E3E3E / justify",
+  "small": "12px / 300 / line-height 1.8 / letter-spacing 1px",
+  "qr_row": {
+   "code_width_pct": "26.656%",
+   "gap_pct": "10.016%",
+   "labels_margin_top_px": 7
+  }
+ },
+ "verify": {
+  "widths": [
+   347,
+   383,
+   677
+  ],
+  "ink_edge_tolerance_px": 1.0,
+  "gap_tolerance_px": 1.0,
+  "wechat_ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.50(0x18003237) NetType/WIFI Language/zh_CN",
+  "chrome": "/usr/bin/google-chrome",
+  "mp_darkmode_js": "vendor/mp-darkmode-1.2.2.min.js",
+  "wechat_qrcode": "pip install --target /tmp/cvc opencv-contrib-python-headless; run with PYTHONPATH=/tmp/cvc",
+  "mp_darkmode_source": "npm mp-darkmode@1.2.2 (MIT), copied from node_modules/mp-darkmode/dist/darkmode.min.js",
+  "chrome_note": "Override with env CHROME_PATH; if neither exists, Playwright's bundled Chromium is used."
+ }
+}

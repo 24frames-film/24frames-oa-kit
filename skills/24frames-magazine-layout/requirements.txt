@@ -1,0 +1,10 @@
+pillow
+numpy
+fonttools
+uharfbuzz
+skia-pathops
+svgpathtools
+playwright
+requests
+# optional, QR decode in selfcheck / preview_verify:
+# opencv-contrib-python-headless

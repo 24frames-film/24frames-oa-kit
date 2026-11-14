@@ -1,0 +1,173 @@
+{
+ "masthead.svg": {
+  "generator": "bin/textsvg.py (font outlines)",
+  "method": "font-outline",
+  "viewBox": [
+   839,
+   252.91
+  ],
+  "size": [
+   839,
+   252.91
+  ],
+  "solid_top": 0,
+  "solid_bottom": 0,
+  "css_per_px@347": 0.37783,
+  "colour": "#141414",
+  "runs": [
+   "Screen",
+   "Play",
+   "Portrait",
+   "「",
+   "Play",
+   "」"
+  ],
+  "spec": {
+   "words": [
+    [
+     "Screen",
+     0,
+     303
+    ],
+    [
+     "Play",
+     372.5,
+     303
+    ],
+    [
+     "Portrait",
+     685,
+     303
+    ]
+   ],
+   "font": "Montserrat Alternates Medium 40px (anchor ls)",
+   "brackets": "kit.bracket_label(center_y=288.5, center_x=421.0, s=2, k=1) → Noto Sans CJK SC Bold 80px",
+   "canvas": "masthead_v3@2x 841×395 (fitted 2026-11-04; Screen/Portrait/「」 pixel-exact, Play 1 px of 906)",
+   "to_svg": "svg = canvas − (1, 61.45)"
+  },
+  "sha256": "2d99eab009333e01406b30569bfa350a65a9e778576913a8ae5e22f19a33879e"
+ },
+ "follow_qr_labels.svg": {
+  "generator": "bin/textsvg.py (font outlines)",
+  "method": "font-outline",
+  "viewBox": [
+   1238,
+   156.64
+  ],
+  "size": [
+   1238,
+   156.64
+  ],
+  "solid_top": 0,
+  "solid_bottom": 0,
+  "css_per_px@347": 0.25606,
+  "colour": "#3E3E3E",
+  "runs": [
+   "公众号",
+   "小红书",
+   "小助手",
+   "进 24帧影迷群  ·  映后 / 沙龙见"
+  ],
+  "spec": {
+   "labels": "Noto Sans CJK SC Bold 42px",
+   "cta": "Noto Sans CJK SC Regular 42px",
+   "colour": "#3E3E3E"
+  },
+  "gap_from_codes_canvas_px": 25.88,
+  "sha256": "23c850d734a4bdb5f34362e8d7a6ba669359a05a97784a3c0e1852b16c87dcd0"
+ },
+ "read_more.svg": {
+  "generator": "bin/textsvg.py (font outlines)",
+  "method": "font-outline",
+  "viewBox": [
+   1238,
+   77.3
+  ],
+  "size": [
+   1238,
+   77.3
+  ],
+  "solid_top": 0,
+  "solid_bottom": 0,
+  "css_per_px@347": 0.25606,
+  "colour": "#141414",
+  "runs": [
+   "「",
+   "Read more",
+   "」"
+  ],
+  "spec": {
+   "word": "Montserrat Alternates Bold 60px",
+   "brackets": "Noto Sans CJK SC Bold 120px #D3381C"
+  },
+  "sha256": "834ac1f3d607fbef882d64ab47af3e8ef77a07b6991ac63a660ccb4bc3647a63"
+ },
+ "follow_head.svg": {
+  "generator": "bin/textsvg.py (font outlines)",
+  "method": "font-outline",
+  "viewBox": [
+   1238,
+   77.3
+  ],
+  "size": [
+   1238,
+   77.3
+  ],
+  "solid_top": 0,
+  "solid_bottom": 0,
+  "css_per_px@347": 0.25606,
+  "colour": "#141414",
+  "runs": [
+   "「",
+   "Follow us",
+   "」"
+  ],
+  "spec": {
+   "word": "Montserrat Alternates Bold 60px",
+   "brackets": "Noto Sans CJK SC Bold 120px #D3381C"
+  },
+  "sha256": "21637de28afbb17a80feaaadd67615ec27e998eb4f32fff4134a547904103eb1"
+ },
+ "byline_label.svg": {
+  "generator": "bin/textsvg.py (font outlines)",
+  "method": "font-outline",
+  "viewBox": [
+   1238,
+   79.4
+  ],
+  "size": [
+   1238,
+   79.4
+  ],
+  "solid_top": 0,
+  "solid_bottom": 0,
+  "css_per_px@347": 0.25606,
+  "colour": "#141414",
+  "runs": [
+   "「",
+   "24帧/文",
+   "」"
+  ],
+  "spec": {
+   "word": "Noto Sans CJK SC Bold 59px",
+   "brackets": "Noto Sans CJK SC Bold 118px #D3381C"
+  },
+  "sha256": "b77eb1156e017d3c5c59bd4eb45851cd2ac771de02f28a354485553f78381560"
+ },
+ "footer.svg": {
+  "generator": "bin/textsvg.py (official logo, kit.flatten_official_logo — no text)",
+  "method": "official-vector",
+  "viewBox": [
+   839,
+   153.05
+  ],
+  "size": [
+   839,
+   153.05
+  ],
+  "solid_top": 0,
+  "solid_bottom": 0,
+  "colour": "#141414",
+  "sha256": "0ea0461ea2a866b0450488620f602eddea13ef1d792f5b7255746803bbaff00b"
+ }
+}

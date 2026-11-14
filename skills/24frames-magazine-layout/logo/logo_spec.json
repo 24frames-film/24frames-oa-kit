@@ -1,0 +1,122 @@
+{
+ "official_svg": "24frames_official.svg (1200×1200 canvas, viewBox 0 0 1200 1200)",
+ "official": {
+  "svg_width": "1200",
+  "svg_height": "1200",
+  "viewBox": [
+   0.0,
+   0.0,
+   1200.0,
+   1200.0
+  ],
+  "group_scale": 0.999558934,
+  "group_translate": [
+   -897.839062,
+   -237.712588
+  ],
+  "ink_box_canvas_px": [
+   60.0,
+   501.492,
+   1140.0,
+   698.507
+  ],
+  "ink_w_canvas_px": 1080.0,
+  "ink_h_canvas_px": 197.015,
+  "aspect_w_over_h": 5.48181,
+  "letters_visible_h_canvas_px": 118.565,
+  "letters_to_bar_gap_canvas_px": 39.225,
+  "bar_h_canvas_px": 39.225
+ },
+ "flattened": {
+  "file": "24frames_logo_paths.svg",
+  "viewBox": [
+   0,
+   0,
+   1000,
+   182.42
+  ],
+  "ink_tight": true,
+  "note": "plain paths: glyphs ∪ → ∩ official clip rect → ∪ bar; no <use>/<defs>/clipPath/transform"
+ },
+ "article_masthead": {
+  "file": "../assets/masthead.svg",
+  "viewBox": [
+   0,
+   0,
+   839,
+   253.55
+  ],
+  "logo_part_viewBox_h": 153.05,
+  "fill": "currentColor (#141414 via wrapper)",
+  "rule": "width:100% of the 15px-padded strip = #js_content width − 30",
+  "displayed": {
+   "viewport_383 (js_content 343)": {
+    "logo_w": 313,
+    "logo_h": 57.1,
+    "ink_x": [
+     35,
+     348
+    ]
+   },
+   "viewport_347 (js_content 307)": {
+    "logo_w": 277,
+    "logo_h": 50.53,
+    "ink_x": [
+     35,
+     312
+    ]
+   }
+  }
+ },
+ "article_footer": {
+  "file": "../assets/footer.svg",
+  "viewBox": [
+   0,
+   0,
+   839,
+   153.05
+  ],
+  "identical_logo_to_masthead": true,
+  "displayed": {
+   "viewport_383": {
+    "logo_w": 313,
+    "logo_h": 57.1
+   },
+   "viewport_347": {
+    "logo_w": 277,
+    "logo_h": 50.53
+   }
+  }
+ },
+ "cover_horizontal": {
+  "size": [
+   1800,
+   766
+  ],
+  "logo_ink_w": 518,
+  "logo_ink_h": 94.49,
+  "logo_colour": "#FFFFFF",
+  "label": "Montserrat Alternates Medium 44px #FFFFFF, cap gap 30px under the bar; 「」 Noto Sans CJK SC Bold 80px #D3381C, glow blur 12 α170, 10px gaps, 12px overhang above cap top / below baseline",
+  "brightness": 0.72,
+  "group": "centred both axes"
+ },
+ "cover_square": {
+  "source": "same 1800×766 upload; WeChat 1:1 crop = x 517–1283 (crop_percent_list x1 0.287222 x2 0.712778)",
+  "logo_ink_w_in_crop": 518,
+  "logo_pct_of_square": 0.6762,
+  "standalone_file": {
+   "size": [
+    1080,
+    1080
+   ],
+   "scale_vs_crop": 1.40992,
+   "logo_ink_w": 730,
+   "label_px": 62,
+   "bracket_px": 113,
+   "cap_gap_px": 42,
+   "bracket_gap_px": 14,
+   "overhang_px": 17,
+   "glow_blur_px": 17
+  }
+ }
+}
