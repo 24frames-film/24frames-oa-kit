@@ -137,7 +137,7 @@ python3 skills/24frames-magazine-layout/bin/selfcheck.py /tmp/demo --shots
 skills/24frames-magazine-layout/
   SKILL.md        给 agent 看的流程和规则
   README.md       本说明
-  docs/           SPEC.md 排版规格，WRITING.md 写作规范
+  docs/           SPEC.md 排版规格
   bin/ lib/       脚本
   kit.json        颜色、字体、版式、接口白名单
   assets/ logo/ fonts/ templates/ vendor/
