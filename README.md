@@ -83,16 +83,24 @@ python3 bin/selfcheck.py ~/oa/my-article --shots   # 自检，必须全部 PASS
 | `[[music-card]]` / `♪ …` | 音乐卡片 / 音乐行 |
 | `[[byline]]` / `[credit] …` | 署名块 / credits |
 
-文章开头的 frontmatter 字段见 `templates/article_template.md`。
+文章开头的 frontmatter 字段见 `templates/article_template.md`。`readmore_title` 必须能在一个 45px 行内排下（约 20 个汉字以内），超长时 `make.py` 会直接报错。要加音乐卡片，先填好 frontmatter 的 `music_name`、`music_singer`、`music_albumurl`、`music_duration`、`music_listenid` 五个字段，再在正文段落后面单独写一行 `[[music-card]]`；字段为空时构建会报错。
 
 ## 运行环境
 
 ```bash
-pip install -r requirements.txt
-python3 -m playwright install chromium     # 已装 Chrome 的话，设 CHROME_PATH 指向它也可以
+pip install -r requirements.txt          # 排版只用到 pillow、fonttools（draft 另需 requests）
+python3 -m playwright install chromium   # 可选：渲染核对（--shots / preview_verify）才需要 playwright + numpy；已装 Chrome 可设 CHROME_PATH
 ```
 
-中文字体用思源黑体（Noto Sans CJK SC，`NotoSansCJK-Bold.ttc` 和 `NotoSansCJK-Regular.ttc`）。脚本会在常见的字体目录里找，找不到时用 `OA_CJK_BOLD`、`OA_CJK_REGULAR` 两个环境变量指向字体文件。
+文字 SVG 用 fontTools 直接取字体字形轮廓，不再需要 HarfBuzz / skia-pathops / svgpathtools；封面和卡片是 Pillow 画的。没有 playwright/numpy 时 `selfcheck.py` 会跳过渲染检查，静态检查照跑。
+
+中文字体用思源黑体（Noto Sans CJK SC）。脚本会按 `NotoSansSC*`、`NotoSansCJK*`、`SourceHanSansSC*` 在 `fonts/`、`~/.cache/24frames-magazine-layout/fonts/`、`~/Library/Fonts`、`/Library/Fonts` 和常见 Linux 字体目录里自动查找，也可以用 `OA_CJK_BOLD`、`OA_CJK_REGULAR` 直接指到文件。网络受限时：
+
+```bash
+npm pack @expo-google-fonts/noto-sans-sc --registry=https://registry.npmmirror.com
+tar xzf expo-google-fonts-noto-sans-sc-*.tgz
+cp package/700Bold/*.ttf package/400Regular/*.ttf fonts/
+```
 
 ## 公众号凭据（只有存草稿时需要）
 
@@ -127,8 +135,8 @@ python3 bin/selfcheck.py /tmp/demo --shots
 
 仓库里的 logo 和二维码是 24帧 的。用在自己的号上时：
 
-1. 替换 `logo/24frames_official.svg` 和 `assets/qr_*.png`。
-2. 改 `bin/textsvg.py` 里的标签文字，再运行 `python3 bin/textsvg.py strips` 重新生成文字 SVG（`docs/SPEC.md` 第 7 节有说明）。
+1. 替换 `assets/qr_*.png`；logo 换成一张拍平的纯路径 SVG，放到 `logo/24frames_logo_paths.svg`（路径填满 viewBox、只用 M/L/C/Q/Z）。
+2. 运行 `python3 bin/bake_logo.py --png` 烘焙 logo（含封面用 PNG），再改 `bin/textsvg.py` 里的标签文字，运行 `python3 bin/textsvg.py strips` 重新生成文字 SVG（`docs/SPEC.md` 第 7 节有说明）。
 3. 颜色、字体、版式参数都在 `kit.json` 里改。
 
 ## 目录

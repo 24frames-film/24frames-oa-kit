@@ -16,7 +16,8 @@
 - HTML 文字：读者设备字体（`PingFang SC` → `Noto Sans CJK SC` 等），300，加粗 600。
 - 章节编号：Bebas Neue。栏目词 Screen / Play / Portrait：Montserrat Alternates Medium。词标英文：SemiBold。Read more / Follow us：Bold。
 - 中文标题、「」、二维码标签、「24帧/文」：Noto Sans CJK SC Bold（ttc index 2）。CTA、Read more 卡片标题：Noto Sans CJK SC Regular。
-- **文字 SVG 只能由字体字形轮廓生成**（`bin/textsvg.py`），禁止把位图描成 path。selfcheck 会拒绝描图或未登记的 SVG。
+- **文字 SVG 只能由字体字形轮廓生成**（`bin/textsvg.py` + `lib/textsvg_core.py`，fontTools 从 cmap 取字形，不需要 HarfBuzz / skia-pathops），禁止把位图描成 path；轮廓保留字体原始非零填充，不做布尔并集。selfcheck 会拒绝描图或未登记的 SVG。
+- 中文字体按 `NotoSansSC*` / `NotoSansCJK*` / `SourceHanSansSC*` 在 `fonts/`、`~/.cache/24frames-magazine-layout/fonts/`、`~/Library/Fonts`、`/Library/Fonts` 和常见 Linux 字体目录自动查找，可用 `OA_CJK_BOLD` / `OA_CJK_REGULAR` 覆盖。
 
 ## 3. 字号（HTML，CSS px）
 | 角色 | 字号 / 字重 / 行高 / 字距 | 颜色 |
@@ -48,16 +49,16 @@
 ## 7. 资产
 | 资产 | 规格 |
 |---|---|
-| 刊头 | `assets/masthead.svg`：官方 logo（拍平成 path，含通栏横杠）+ Screen「Play」Portrait 行，栏宽 100% |
+| 刊头 | `assets/masthead.svg`：官方 logo（`assets/logo_flat.json` 一次性烘焙的 path，含通栏横杠）+ Screen「Play」Portrait 行，栏宽 100% |
 | 页脚 | `assets/footer.svg`：只有 logo，无底色无卡片 |
 | 章节词标 | `## NN 中文 \| ENGLISH` → `bin/wordmarks.py`：编号 Bebas 152、英文 SemiBold 40 + 「」80、中文 Bold 68（画布 px）；中文约 18 字一行，放不下报错 |
-| Read more 卡片 | `bin/readmore.py`：上一篇的 2.35:1 封面放大到 1218 宽，底部渐变，标题 Regular 45 白色；整张包 `<a href>` |
+| Read more 卡片 | `bin/readmore.py`：上一篇的 2.35:1 封面放大到 1218 宽，底部渐变，标题 Regular 45 白色；标题须在一行内（约 20 个汉字），超长直接报错；整张包 `<a href>` |
 | 标题条 / 署名条 / 二维码标签 | `assets/read_more.svg`、`follow_head.svg`、`byline_label.svg`、`follow_qr_labels.svg`（`bin/textsvg.py strips` 生成） |
 | 二维码 | `assets/qr_oa.png`、`qr_xhs.png`、`qr_helper.png`：540×540，白色圆角底；三张独立 `<img>`（微信一张图只识别一个码），宽 26.656%，间距 10.016% |
 | 封面 | `bin/cover.py`：1800×766，亮度 0.72，白色 logo 墨迹宽 518 居中，栏目词 Montserrat Medium 44 + 「」80 带光晕；1:1 裁切 x 517–1283；另出 1080×1080 |
 | 内容图 | 宽 ≥1080（GIF ≥480）；JPG/PNG ≥1MB 上传时自动重编码 |
 
-换成自己的品牌：替换 `logo/24frames_official.svg` 和 `assets/qr_*.png`，改 `bin/textsvg.py` 里的标签文字，再跑 `python3 bin/textsvg.py strips`。
+换成自己的品牌：替换 `assets/qr_*.png` 和 `logo/24frames_logo_paths.svg`（拍平的纯路径，填满 viewBox、只用 M/L/C/Q/Z），跑 `python3 bin/bake_logo.py --png`、`python3 bin/textsvg.py strips`，再改 `bin/textsvg.py` 里的标签文字。
 
 ## 8. 文章结构
 刊头 → 头图 → dek → 正文与配图 → 章节（词标 + 文字 / 图 / rail / ♪）→ 署名块 → credits → 页脚 logo → Read more + 卡片 → Follow us + 三个二维码。页脚之后的部分由 build 自动生成。

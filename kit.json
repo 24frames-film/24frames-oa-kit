@@ -34,7 +34,7 @@
   "cjk_bold": "/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc",
   "cjk_regular": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
   "cjk_index_sc": 2,
-  "cjk_note": "Override with env OA_CJK_BOLD / OA_CJK_REGULAR (any Noto Sans CJK SC / Source Han Sans SC file)."
+  "cjk_note": "Override with env OA_CJK_BOLD / OA_CJK_REGULAR (any Noto Sans CJK SC / Source Han Sans SC file). Also auto-detected: NotoSansSC* / NotoSansCJK* / SourceHanSansSC* in fonts/, ~/.cache/24frames-magazine-layout/fonts/, ~/Library/Fonts, /Library/Fonts and the usual Linux font dirs."
  },
  "colours": {
   "ink": "#141414",
@@ -46,6 +46,8 @@
  "logo": {
   "official_svg": "logo/24frames_official.svg",
   "paths_svg": "logo/24frames_logo_paths.svg",
+  "flat": "assets/logo_flat.json",
+  "bake": "bin/bake_logo.py",
   "spec": "logo/logo_spec.json"
  },
  "cover": {

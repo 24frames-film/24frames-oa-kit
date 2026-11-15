@@ -7,7 +7,6 @@ ink-to-ink gaps = spec (48 flow / 48 headings / 24 tight / 16 attached, ±1px), 
 on #191919) keeps text #3E3E3E and the reading area white; editor view with OS dark keeps text dark.
 --shots also writes out/selfcheck_<w>_{light,dark}.png"""
 import os, re, sys, io, json; sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "lib")); import kit
-import numpy as np
 from PIL import Image
 adir = os.path.abspath(sys.argv[1]); SHOTS = "--shots" in sys.argv
 c = open(f"{adir}/out/content.html", encoding="utf-8").read(); R = []
@@ -48,12 +47,17 @@ for p in locs:
         if w < (480 if p.endswith(".gif") else 1080): small.append(f"{os.path.basename(p)}={w}px")
 ok("photos ≥1080px wide (GIF ≥480)", not small, ",".join(small))
 try:
-    sys.path.insert(0, "/tmp/cvc"); import cv2; det = cv2.wechat_qrcode.WeChatQRCode()
+    sys.path.insert(0, "/tmp/cvc"); import cv2, numpy as np; det = cv2.wechat_qrcode.WeChatQRCode()
     dec = [bool(det.detectAndDecode(cv2.cvtColor(np.asarray(Image.open(kit.kp(f"assets/qr_{n}.png")).convert("RGB")), cv2.COLOR_RGB2BGR))[0]) for n in ("oa", "xhs", "helper")]
     ok("all three QR images decode (wechat_qrcode)", all(dec), str(dec))
 except Exception as e: print("SKIP QR decode:", kit.CFG["verify"]["wechat_qrcode"], e)
 # ── rendered ──
-from playwright.sync_api import sync_playwright
+try:
+    from playwright.sync_api import sync_playwright
+    import numpy as np
+except ImportError:
+    print("SKIP rendered checks — pip install playwright numpy && python3 -m playwright install chromium")
+    n = sum(1 for r in R if not r[0]); print(f"\n{len(R) - n}/{len(R)} PASS (rendered skipped)"); sys.exit(1 if n else 0)
 DM = open(kit.kp(kit.CFG["verify"]["mp_darkmode_js"])).read(); INK14, INK12 = (5.25, 7.19), (5.0, 5.59)
 TEXTY = {"text": INK14, "rail-wrap": INK14, "byline-name": INK14, "dek": INK12, "music": INK12, "credits": INK12, "byline-sig": INK12}
 sys.path.insert(0, os.path.dirname(__file__)); import build

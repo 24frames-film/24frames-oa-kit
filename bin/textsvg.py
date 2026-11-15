@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """ALL text SVGs of the kit = glyph outlines from the font files. Bitmap tracing of text is forbidden.
 How: each asset runs its Pillow layout (fonts, px, gaps, centring loops) under
-lib/textsvg_core.Recorder; every opaque text run is re-drawn from the font's glyph outlines (fontTools; glyph ids from
-HarfBuzz; pen positions = Pillow's), overlaps removed with skia-pathops, 2-decimal path data. Neutral ink fill="currentColor",
-crimson 「」 fill="#D3381C"; the 「」 glow is not part of the SVG. viewBox = the outline ink box (ink-tight): centred 1238-wide
-strips keep x 0–1238; masthead/footer keep the official logo width 839 (logo = kit.flatten_official_logo, not text).
+lib/textsvg_core.Recorder; every opaque text run is re-drawn from the font's glyph outlines (fontTools;
+glyph ids from the font's cmap; pen positions = Pillow's), 2-decimal path data, original nonzero winding.
+Neutral ink fill="currentColor", crimson 「」 fill="#D3381C"; the 「」 glow is not part of the SVG.
+viewBox = the outline ink box (ink-tight): centred 1238-wide strips keep x 0–1238; masthead/footer keep the
+official logo width 839 (logo = assets/logo_flat.json, a one-time bake, not text).
 usage:
   python3 bin/textsvg.py strips [<out_dir>=assets]          # masthead, footer, read_more, follow_head, byline_label, follow_qr_labels
                                                            #   → <out_dir>/*.svg + textsvg.json (manifest) + strip_ink.json (build data)
@@ -13,14 +14,14 @@ usage:
 import os, sys, json, math, re, hashlib
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, os.path.join(HERE, "..", "lib"))
 import kit, textsvg_core as T
-import numpy as np
 from PIL import Image, ImageDraw
 W = 1238; GREY = (62, 62, 62, 255); GEN = "bin/textsvg.py (font outlines)"
 SVG_STYLE = 'width="100%" style="display:block;width:100%;height:auto;margin:0;padding:0;" role="img"'
 def sha(s): return hashlib.sha256(s.encode("utf-8")).hexdigest()
+def ink_mask(im, thr=200): return im.convert("L").point(lambda v: 255 if v < thr else 0)
 def solid(im, thr=200):
-    a = np.asarray(im.convert("L")); ys = np.where((a < thr).any(1))[0]; xs = np.where((a < thr).any(0))[0]
-    return int(xs.min()), int(ys.min()), int(xs.max() + 1), int(ys.max() + 1)
+    b = ink_mask(im, thr).getbbox()
+    return b if b else (0, 0, 0, 0)
 # ── layouts (each returns the recorded opaque text runs + how the viewBox is fitted) ──
 def qr_labels(lab_px=42, sub_px=42):
     """二维码标签 公众号/小红书/小助手 Noto Sans CJK SC Bold 42, centred under each 330-px code (codes at x 0/454/908 of 1238),
@@ -80,9 +81,9 @@ def masthead(active="Play"):
                 for w, x, b in MH_ROW["words"]:
                     if w != active: dd.text((x, b), w, font=wf, fill=kit.BLACK, anchor="ls")
                 kit.bracket_label(im, 288.5, active, wf, 2, k=1.0, center_x=cx)
-                a = np.asarray(im.convert("L"))
-                xs = np.where((a[200:360] < 200).any(0))[0]
-                return int(xs.min()) if len(xs) else 999
+                a = ink_mask(im)
+                xs = a.crop((0, 200, im.width, 360)).getbbox()
+                return xs[0] if xs else 999
             # start from a mid estimate and seek left_ink == 2 (Play masthead)
             cx = 112.0; best, best_d = cx, 10**9
             for _ in range(24):
@@ -115,7 +116,7 @@ def wordmark(num, cn, en):
     Wb = int(SPAN) + 2 * G
     for _ in range(6):
         with T.Recorder() as R: img = _wm_draw(Wb, num, cn, en)
-        xs = np.where((np.asarray(img.convert("L")) < 200).any(0))[0]; err = SPAN - (xs.max() + 1 - xs.min())
+        x0, y0, x1, y1 = solid(img); err = SPAN - (x1 - x0)
         if abs(err) < 0.5: break
         Wb += int(round(err))
     cbx = ImageDraw.Draw(img).textbbox((0, 0), cn, font=kit.F("cjk_bold", 68))

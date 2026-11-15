@@ -8,8 +8,9 @@ cover_label: Screen
 byline_name: 作者名
 byline_sig: 一句个签
 readmore_url: https://mp.weixin.qq.com/s/UGpz2XrDQ0yVFguU72gWog
-readmore_title: 爱，究竟还有没有可能？从《可能的爱》重新走进李沧东的电影世界
+readmore_title: 上一篇推荐标题（20 字以内）
 readmore_cover: images/readmore_cover_235.jpg
+# 音乐卡片：填好下面 5 个字段后，在正文段落后面单独写一行 [[music-card]]
 music_name:
 music_singer:
 music_albumurl:
@@ -20,8 +21,6 @@ music_listenid:
 ### 一句话导语（12px 红色，紧接头图，也是默认摘要）
 
 第一段正文。**加粗**用两个星号。空一行开始新段。
-
-[[music-card]]
 
 ![《片名》年份](images/01_still.jpg)
 
